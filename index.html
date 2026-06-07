@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="Ria Money Transfer service information page for Artisan Smoke Shop King George in Surrey, BC. Send international money transfers with in-store support." />
+  <meta property="og:title" content="Ria Money Transfer | Artisan Smoke Shop King George" />
+  <meta property="og:description" content="Visit Artisan Smoke Shop King George for Ria Money Transfer support, transfer checklist, FAQ, contact details, and Google Maps directions." />
+  <title>Ria Money Transfer | Artisan Smoke Shop King George</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="topbar" id="top">
+    <a href="#top" class="brand" aria-label="Ria Money Transfer at Artisan Smoke Shop King George home">
+      <span class="brand-mark">R</span>
+      <span class="brand-copy"><strong>Ria Money Transfer</strong><small>Artisan King George • Surrey</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#checklist">Checklist</a>
+      <a href="#faq">FAQ</a>
+      <a href="#visit">Visit</a>
+      <a class="pill-link" href="tel:+16045891649">Call now</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Fast local help • Clear information • Mobile friendly</p>
+        <h1>Send money with confidence at <span>Artisan Smoke Shop King George.</span></h1>
+        <p class="hero-text">A modern customer page for Ria Money Transfer service in Surrey. Check what to bring, explore payout options, submit a quick request, and get directions before visiting.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">Start a request</a>
+          <a class="btn secondary" href="#visit">Get directions</a>
+        </div>
+        <div class="stat-row" aria-label="Ria service highlights">
+          <div><strong>190+</strong><small>countries supported by Ria</small></div>
+          <div><strong>500k+</strong><small>cash pickup locations worldwide</small></div>
+          <div><strong>24/7</strong><small>store hours listed publicly</small></div>
+        </div>
+      </div>
+      <aside class="hero-panel reveal delay-1" aria-label="Interactive transfer planner preview">
+        <div class="phone-shell">
+          <div class="phone-top"><span></span><span></span><span></span></div>
+          <p class="mini-title">Transfer prep</p>
+          <h2>What is the transfer for?</h2>
+          <div class="purpose-grid" id="purposeGrid">
+            <button type="button" data-purpose="Family support">Family</button>
+            <button type="button" data-purpose="Emergency help">Emergency</button>
+            <button type="button" data-purpose="Bill or payment">Payment</button>
+            <button type="button" data-purpose="Gift or celebration">Gift</button>
+          </div>
+          <div class="selected-purpose" id="selectedPurpose">Tap a purpose to personalize your visit checklist.</div>
+          <div class="mini-progress"><span id="progressLine"></span></div>
+          <ul class="mini-checks">
+            <li>Valid photo ID</li>
+            <li>Recipient full legal name</li>
+            <li>Destination and payout method</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section class="trust-strip reveal" aria-label="Customer groups">
+      <span>Simple for first-time customers</span>
+      <span>Clean for Gen Z</span>
+      <span>Clear for parents and seniors</span>
+      <span>Ready for walk-ins</span>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-head reveal">
+        <p class="eyebrow">Services explained</p>
+        <h2>Ria services customers ask about most.</h2>
+        <p>All service details are shown in plain language. Final transfer availability, rates, fees, limits, and timing must be confirmed through the official Ria system.</p>
+      </div>
+      <div class="service-grid" id="serviceGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section two-col" id="process">
+      <div class="reveal">
+        <p class="eyebrow">Step by step</p>
+        <h2>How an in-store transfer usually works.</h2>
+        <div class="steps">
+          <article><b>01</b><h3>Prepare details</h3><p>Bring valid ID, your phone number, recipient full legal name, destination country, and delivery information.</p></article>
+          <article><b>02</b><h3>Choose payout</h3><p>Ask about cash pickup, bank deposit, or digital wallet options depending on the country and recipient needs.</p></article>
+          <article><b>03</b><h3>Confirm before paying</h3><p>Review recipient spelling, fee, exchange rate, total amount, payout method, and estimated timing.</p></article>
+          <article><b>04</b><h3>Keep your receipt</h3><p>Save the Ria PIN/order number and share pickup details only with the correct recipient.</p></article>
+        </div>
+      </div>
+      <aside class="planner-card reveal delay-1">
+        <p class="eyebrow">Build your visit checklist</p>
+        <label for="countrySelect">Destination country</label>
+        <select id="countrySelect"></select>
+        <label for="deliverySelect">Preferred payout method</label>
+        <select id="deliverySelect">
+          <option>Cash pickup</option>
+          <option>Bank deposit</option>
+          <option>Mobile wallet / digital payout</option>
+          <option>Not sure yet</option>
+        </select>
+        <label for="amountInput">Estimated amount</label>
+        <input id="amountInput" placeholder="Example: 300 CAD" />
+        <button class="btn primary full" id="buildChecklist" type="button">Build checklist</button>
+        <div class="smart-result" id="smartResult">Choose your options to create a quick customer checklist.</div>
+      </aside>
+    </section>
+
+    <section class="section checklist-section" id="checklist">
+      <div class="section-head reveal">
+        <p class="eyebrow">Before visiting</p>
+        <h2>Customer-ready checklist.</h2>
+        <p>Tick the boxes before coming to the store. This reduces delays and spelling mistakes.</p>
+      </div>
+      <div class="check-grid reveal" id="checkGrid">
+        <label><input type="checkbox"> Valid government-issued photo ID</label>
+        <label><input type="checkbox"> Your active phone number</label>
+        <label><input type="checkbox"> Recipient full legal name</label>
+        <label><input type="checkbox"> Destination country and city</label>
+        <label><input type="checkbox"> Recipient phone number</label>
+        <label><input type="checkbox"> Bank or wallet details, if needed</label>
+        <label><input type="checkbox"> Confirm spelling before payment</label>
+        <label><input type="checkbox"> Keep receipt and PIN/order number</label>
+      </div>
+      <p class="check-progress" id="checkProgress">0 of 8 completed</p>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="contact-wrap reveal">
+        <div class="contact-copy">
+          <p class="eyebrow">Quick request</p>
+          <h2>Ask before you visit.</h2>
+          <p>Send your basic transfer question to the website backend. This does not complete a transfer, but it helps the store understand what you need before you call or walk in.</p>
+          <div class="contact-cards">
+            <a href="tel:+16045891649">📞 <span>(604) 589-1649</span></a>
+            <a href="mailto:artisansmokeshop@gmail.com">✉️ <span>artisansmokeshop@gmail.com</span></a>
+            <a href="#visit">📍 <span>9801 King George Blvd #201, Surrey</span></a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <input name="name" placeholder="Your name *" required />
+            <input name="phone" placeholder="Phone number *" required />
+          </div>
+          <input name="email" type="email" placeholder="Email optional" />
+          <div class="form-row">
+            <input name="destination" placeholder="Destination country *" required />
+            <input name="amount" placeholder="Approx. amount optional" />
+          </div>
+          <select name="method" aria-label="Preferred payout method">
+            <option>Cash pickup</option>
+            <option>Bank deposit</option>
+            <option>Mobile wallet / digital payout</option>
+            <option>Not sure yet</option>
+          </select>
+          <textarea name="message" placeholder="Question or note"></textarea>
+          <button class="btn primary full" type="submit">Submit request</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Search customer questions.</h2>
+        <input class="faq-search" id="faqSearch" placeholder="Search: ID, fees, cash pickup, India, timing..." />
+      </div>
+      <div class="faq-list" id="faqList" aria-live="polite"></div>
+    </section>
+
+    <section class="section visit-section" id="visit">
+      <div class="visit-info reveal">
+        <p class="eyebrow">Visit the store</p>
+        <h2>Artisan Smoke Shop King George</h2>
+        <p><strong>Address:</strong> 9801 King George Blvd #201, Surrey, BC V3T 5H5</p>
+        <p><strong>Phone:</strong> <a href="tel:+16045891649">(604) 589-1649</a></p>
+        <p><strong>Email:</strong> <a href="mailto:artisansmokeshop@gmail.com">artisansmokeshop@gmail.com</a></p>
+        <p><strong>Hours:</strong> Open 24 hours, 7 days a week</p>
+        <div class="hero-actions">
+          <a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Artisan%20Smoke%20Shop%20King%20George%209801%20King%20George%20Blvd%20%23201%20Surrey%20BC">Open in Google Maps</a>
+          <a class="btn secondary" href="tel:+16045891649">Call store</a>
+        </div>
+      </div>
+      <div class="map-card reveal delay-1">
+        <iframe title="Google Map to Artisan Smoke Shop King George" loading="lazy" allowfullscreen src="https://www.google.com/maps?q=Artisan%20Smoke%20Shop%20King%20George%209801%20King%20George%20Blvd%20%23201%20Surrey%20BC&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Ria Money Transfer service page for Artisan Smoke Shop King George.</p>
+    <p class="footer-note">Independent informational store page. Ria is a registered money transfer provider; this page does not process transfers or guarantee live fees, rates, limits, payout methods, or timing.</p>
+  </footer>
+
+  <a class="floating-call" href="tel:+16045891649" aria-label="Call Artisan Smoke Shop King George">Call</a>
+  <script src="app.js"></script>
+</body>
+</html>

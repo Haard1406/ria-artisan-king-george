@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Leads | Ria Artisan King George</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body{padding:24px}.admin{max-width:1100px;margin:0 auto}.admin-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.lead-table{width:100%;border-collapse:collapse;margin-top:20px;overflow:hidden;border-radius:18px}.lead-table th,.lead-table td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}.lead-table th{color:var(--brand);font-size:.88rem}.lead-table td{color:#e7edf8;font-size:.92rem}.token-box{display:flex;gap:8px;flex-wrap:wrap}.token-box input{min-width:240px}.empty{margin-top:20px}.lead-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.05)}
+  </style>
+</head>
+<body>
+  <main class="admin">
+    <div class="admin-top">
+      <div>
+        <p class="eyebrow">Backend</p>
+        <h1>Customer requests</h1>
+        <p class="hero-text">Enter your admin token to view submitted website leads.</p>
+      </div>
+      <a class="btn secondary" href="/">Back to website</a>
+    </div>
+    <div class="planner-card" style="position:static;margin-top:20px">
+      <label for="token">Admin token</label>
+      <div class="token-box">
+        <input id="token" placeholder="Example: demo123" />
+        <button class="btn primary" id="loadLeads">Load leads</button>
+      </div>
+      <p class="form-status" id="status"></p>
+    </div>
+    <div id="results"></div>
+  </main>
+  <script>
+    const tokenInput = document.querySelector('#token');
+    const status = document.querySelector('#status');
+    const results = document.querySelector('#results');
+    const saved = new URLSearchParams(location.search).get('token') || localStorage.getItem('adminToken') || '';
+    tokenInput.value = saved;
+    async function loadLeads(){
+      const token = tokenInput.value.trim();
+      localStorage.setItem('adminToken', token);
+      status.textContent = 'Loading...';
+      results.innerHTML = '';
+      try{
+        const res = await fetch(`/api/admin/leads?token=${encodeURIComponent(token)}`);
+        const data = await res.json();
+        if(!res.ok) throw new Error(data.error || 'Unauthorized');
+        status.textContent = `${data.total} lead(s) found.`;
+        if(!data.leads.length){results.innerHTML = '<p class="form-status empty">No requests yet.</p>'; return;}
+        results.innerHTML = `<div class="lead-table-wrap"><table class="lead-table"><thead><tr><th>Date</th><th>Name</th><th>Phone</th><th>Email</th><th>Destination</th><th>Amount</th><th>Method</th><th>Message</th></tr></thead><tbody>${data.leads.map(lead => `<tr><td>${new Date(lead.createdAt).toLocaleString()}</td><td>${lead.name}</td><td>${lead.phone}</td><td>${lead.email || '-'}</td><td>${lead.destination}</td><td>${lead.amount || '-'}</td><td>${lead.method}</td><td>${lead.message || '-'}</td></tr>`).join('')}</tbody></table></div>`;
+      }catch(err){status.textContent = err.message;}
+    }
+    document.querySelector('#loadLeads').addEventListener('click', loadLeads);
+    if(saved) loadLeads();
+  </script>
+</body>
+</html>
