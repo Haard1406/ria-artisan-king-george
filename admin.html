@@ -35,6 +35,9 @@
     const results = document.querySelector('#results');
     const saved = new URLSearchParams(location.search).get('token') || localStorage.getItem('adminToken') || '';
     tokenInput.value = saved;
+    function escapeHtml(value){
+      return String(value ?? '').replace(/[&<>'\"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[char]));
+    }
     async function loadLeads(){
       const token = tokenInput.value.trim();
       localStorage.setItem('adminToken', token);
@@ -46,7 +49,7 @@
         if(!res.ok) throw new Error(data.error || 'Unauthorized');
         status.textContent = `${data.total} lead(s) found.`;
         if(!data.leads.length){results.innerHTML = '<p class="form-status empty">No requests yet.</p>'; return;}
-        results.innerHTML = `<div class="lead-table-wrap"><table class="lead-table"><thead><tr><th>Date</th><th>Name</th><th>Phone</th><th>Email</th><th>Destination</th><th>Amount</th><th>Method</th><th>Message</th></tr></thead><tbody>${data.leads.map(lead => `<tr><td>${new Date(lead.createdAt).toLocaleString()}</td><td>${lead.name}</td><td>${lead.phone}</td><td>${lead.email || '-'}</td><td>${lead.destination}</td><td>${lead.amount || '-'}</td><td>${lead.method}</td><td>${lead.message || '-'}</td></tr>`).join('')}</tbody></table></div>`;
+        results.innerHTML = `<div class="lead-table-wrap"><table class="lead-table"><thead><tr><th>Date</th><th>Name</th><th>Phone</th><th>Email</th><th>Destination</th><th>Amount</th><th>Method</th><th>Message</th></tr></thead><tbody>${data.leads.map(lead => `<tr><td>${new Date(lead.createdAt).toLocaleString()}</td><td>${escapeHtml(lead.name)}</td><td>${escapeHtml(lead.phone)}</td><td>${escapeHtml(lead.email || '-')}</td><td>${escapeHtml(lead.destination)}</td><td>${escapeHtml(lead.amount || '-')}</td><td>${escapeHtml(lead.method)}</td><td>${escapeHtml(lead.message || '-')}</td></tr>`).join('')}</tbody></table></div>`;
       }catch(err){status.textContent = err.message;}
     }
     document.querySelector('#loadLeads').addEventListener('click', loadLeads);

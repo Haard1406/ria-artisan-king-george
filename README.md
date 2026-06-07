@@ -20,7 +20,7 @@ A professional full-stack demo website for the Ria Money Transfer service page a
 
 ## Local run
 
-Install Node.js 18 or newer.
+Install Node.js 20 LTS or newer.
 
 ```bash
 npm install
@@ -110,4 +110,13 @@ This website does not process money transfers. It is a customer information and 
 - Artisan Smoke Shop King George address: 9801 King George Blvd #201, Surrey, BC V3T 5H5
 - Public phone listing: +1 604-589-1649
 - Public hours listing: open 24 hours, 7 days a week
+- Ria Canada official website: https://www.riamoneytransfer.com/en-ca/
 - Ria Canada publicly states it supports sending to 190+ countries and cash pickup at more than 500,000 locations worldwide.
+
+
+## Scroll fix included
+This v3 package includes a CSS scroll-safety patch so the page can scroll vertically on desktop, tablet, and mobile browsers.
+
+
+## Render install fix
+This package intentionally does not include package-lock.json so Render generates a fresh lockfile from the public npm registry. The .npmrc file forces npm to use https://registry.npmjs.org/.
