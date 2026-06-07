@@ -1,19 +1,12 @@
 {
-  "name": "ria-artisan-king-george-full-stack-site",
-  "version": "2.0.0",
-  "description": "Professional dynamic responsive website with backend for Ria Money Transfer service at Artisan Smoke Shop King George.",
+  "name": "ria-artisan-king-george-zero-dependency-site",
+  "version": "5.0.0",
+  "description": "Zero-dependency dynamic website with backend APIs and lead capture for Ria Money Transfer at Artisan Smoke Shop King George.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "check": "node -e \"require('./server.js'); setTimeout(()=>process.exit(0), 1000)\""
+    "start": "node server.js"
   },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.3",
-    "helmet": "^7.1.0",
-    "morgan": "^1.10.0"
-  },
-  "engines": { "node": "20.x" },
-  "keywords": ["ria", "money-transfer", "artisan-smoke-shop", "surrey", "node", "express"]
+  "engines": {
+    "node": "20.x"
+  }
 }

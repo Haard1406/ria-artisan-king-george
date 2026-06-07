@@ -3,10 +3,10 @@ services:
     name: ria-artisan-king-george
     env: node
     plan: free
-    buildCommand: npm install --registry=https://registry.npmjs.org/
-    startCommand: npm start
+    buildCommand: ""
+    startCommand: "npm start"
     envVars:
       - key: NODE_VERSION
         value: 20
       - key: ADMIN_TOKEN
-        sync: false
+        value: demo123
