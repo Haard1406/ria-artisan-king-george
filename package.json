@@ -1,7 +1,7 @@
 {
   "name": "ria-artisan-king-george-zero-dependency-site",
   "version": "5.0.0",
-  "description": "Zero-dependency dynamic website with backend APIs and lead capture for Ria Money Transfer at Artisan Smoke Shop King George.",
+  "description": "Zero-dependency dynamic Ria Money Transfer customer information and lead capture website for Artisan Smoke Shop King George.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
